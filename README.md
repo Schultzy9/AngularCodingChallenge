@@ -1,27 +1,32 @@
-# AngularCodingChallenge
+# Motorola - Angular Coding Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+## by Matthew Schultz ##
 
-## Development server
+This project is a simple login page where a User can attempt to log into the website. A successful login will redirect the user to the Home page. This project was completed as part of an Angular coding challenge for Motorola Solutions.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone the repository
 
-## Code scaffolding
+`git clone https://github.com/Schultzy9/AngularCodingChallenge.git`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Enter the directory
 
-## Build
+`cd angular-coding-challenge`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install dependencies
 
-## Running unit tests
+`npm install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Run the application
 
-## Running end-to-end tests
+`ng serve`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. Navigate to the login page at http://localhost:4200/login
 
-## Further help
+## Accepted logins
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To successfully login to the page please try one of the following usernames and passwords:
+
+1. Username: CoolUser\
+Password: Password123
+2. Username: AnotherCoolUser\
+Password: Password987
