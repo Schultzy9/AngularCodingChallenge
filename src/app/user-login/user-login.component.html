@@ -1,43 +1,45 @@
-<form (ngSubmit)="login()" #userLogin="ngForm">
-	<h2>User Login</h2>
-	<div>
-		<label for="username">Username:</label>
-		<input
-			[(ngModel)]="userUsername" 
-			#username="ngModel"
-			type="text" 
-			id="username" 
-			name="username" 
-			required
-		/>
-		<div *ngIf="username.invalid && username.touched">
-			<div *ngIf="username.errors?.['required']">
-				Username is required.
+<div class="container">
+	<form (ngSubmit)="login()" #userLogin="ngForm">
+		<h2>User Login</h2>
+		<div>
+			<label for="username">Username:</label>
+			<input
+				[(ngModel)]="userUsername" 
+				#username="ngModel"
+				type="text" 
+				id="username" 
+				name="username" 
+				required
+			/>
+			<div *ngIf="username.invalid && username.touched">
+				<div *ngIf="username.errors?.['required']" class="error-message">
+					Username is required.
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div>
-		<label for="password">Password:</label>
-		<input 
-			[(ngModel)]="userPassword" 
-			#password="ngModel" 
-			type="password"
-			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-			id="password" 
-			name="password" 
-			required
-		/>
-		<div *ngIf="password.invalid && password.touched">
-			<div *ngIf="password.errors?.['pattern'] || password.errors?.['required']">
-				Password must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters.
+		<div>
+			<label for="password">Password: </label>
+			<input 
+				[(ngModel)]="userPassword" 
+				#password="ngModel" 
+				type="password"
+				pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+				id="password" 
+				name="password" 
+				required
+			/>
+			<div *ngIf="password.invalid && password.touched">
+				<div *ngIf="password.errors?.['pattern'] || password.errors?.['required']" class="error-message">
+					Password must contain at least one number, one uppercase letter, one lowercase letter and at least 8 characters.
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<button type="submit" [disabled]="userLogin.invalid">Login</button>
+		<button type="submit" [disabled]="userLogin.invalid">Login</button>
 
-	<div *ngIf="failedLogin">
-		Incorrect username or password.
-	</div>
-</form>
+		<div *ngIf="failedLogin" class="error-message">
+			Incorrect username or password.
+		</div>
+	</form>
+</div>

@@ -109,6 +109,11 @@ describe('UserLoginComponent', () => {
 		component.userPassword = 'BadPassword'
 
 		component.login()
+		fixture.detectChanges()
+
+		const errorMessage = fixture.nativeElement.querySelector('.error-message')
+    	expect(errorMessage).toBeTruthy()
+		expect(errorMessage.textContent).toContain('Incorrect username or password.')
 
 		expect(component.failedLogin).toBeTruthy()
 		expect(router.navigate).not.toHaveBeenCalled()
