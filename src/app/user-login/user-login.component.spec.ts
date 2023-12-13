@@ -3,10 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { UserLoginComponent } from './user-login.component'
 import { FormsModule } from '@angular/forms'
 import { By } from '@angular/platform-browser'
+import { Router } from '@angular/router'
 
 describe('UserLoginComponent', () => {
 	let component: UserLoginComponent
 	let fixture: ComponentFixture<UserLoginComponent>
+	let router: Router
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -17,6 +19,7 @@ describe('UserLoginComponent', () => {
 
 		fixture = TestBed.createComponent(UserLoginComponent)
 		component = fixture.componentInstance
+		router = TestBed.inject(Router);
 
 		fixture.detectChanges()
 	})
@@ -88,4 +91,27 @@ describe('UserLoginComponent', () => {
 		const submitButton: HTMLButtonElement = fixture.nativeElement.querySelector('button')
 		expect(submitButton.disabled).toBeFalsy()
 	})
+
+	it('should send user to the home page on successful login', () => {
+		spyOn(router, 'navigate')
+		component.userUsername = 'CoolUser'
+		component.userPassword = 'Password123'
+	
+		component.login()
+	
+		expect(component.failedLogin).toBeFalsy()
+		expect(router.navigate).toHaveBeenCalledWith([''])
+	})
+
+	it('should not navigate on unsuccessful login', () => {
+		spyOn(router, 'navigate')
+		component.userUsername = 'BadUser'
+		component.userPassword = 'BadPassword'
+
+		component.login()
+
+		expect(component.failedLogin).toBeTruthy()
+		expect(router.navigate).not.toHaveBeenCalled()
+	})
+
 })

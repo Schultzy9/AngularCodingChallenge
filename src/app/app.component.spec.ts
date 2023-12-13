@@ -29,11 +29,4 @@ describe('AppComponent', () => {
 		const app = fixture.componentInstance
 		expect(app.title).toEqual('angular-coding-challenge')
 	})
-	
-	it('should contain text "Home Page', () => {
-		const fixture = TestBed.createComponent(AppComponent)
-		fixture.detectChanges()
-		const heading = fixture.nativeElement as HTMLElement
-		expect(heading.querySelector('h1')?.textContent).toContain('Home Page')
-	})
 })

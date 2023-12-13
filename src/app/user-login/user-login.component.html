@@ -36,4 +36,8 @@
 	</div>
 
 	<button type="submit" [disabled]="userLogin.invalid">Login</button>
+
+	<div *ngIf="failedLogin">
+		Incorrect username or password.
+	</div>
 </form>
